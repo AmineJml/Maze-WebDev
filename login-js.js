@@ -23,6 +23,8 @@ document.getElementById('btn_login').onclick = () =>{
     const username = document.getElementById("input_txt_username")
     const password = document.getElementById("input_txt_password")
 
+    let password = localStorage.getItem(username);
+    
     if(username.value == "" || password == "")   {
         alert("Please fill in the blanks")
         return
@@ -38,6 +40,7 @@ document.getElementById('btn_login').onclick = () =>{
     console.log( username.value  + password.value)
 
 }
-    
+
+
 
  
