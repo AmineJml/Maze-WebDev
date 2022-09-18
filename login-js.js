@@ -16,7 +16,11 @@ document.getElementById('btn_login').onclick = () => {
         if(user != null){
             
             if (password == user["password"]){
+                const user = JSON.parse(localStorage.getItem(username))
+
+
                 alert("logging in")
+                localStorage.setItem("loggedUser" , username)
                 location.assign("game.html")
             }
         }
@@ -26,6 +30,5 @@ document.getElementById('btn_login').onclick = () => {
 
     }
     
-    console.log(username + password)
 
 }
