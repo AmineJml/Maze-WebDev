@@ -2,13 +2,29 @@ window.onload = () => {
     const element_score = document.getElementsByClassName("boundary example")
     const boundary_element = document.getElementsByClassName("boundary")
     const game_element = document.getElementById("game")
-    
-
+    const start_element = document.getElementById("start")
+    const end_element = document.getElementById("end")
+    const element_reset = document.getElementById("start")
+    const status = document.getElementById("status")
 
     let score = 0;
     let inGame = false
 
-    const start_element = document.getElementById("start")
+
+
+
+
+
+//     const user = JSON.parse(localStorage.getItem(localStorage.getItem("loggedUser")))
+//     user[score] = 200
+//    localStorage.setItem("loggedUser", user)
+
+
+
+
+
+
+    //hovering over start
     start_element.addEventListener("mouseenter", () => {
         inGame = true;
 
@@ -19,6 +35,7 @@ window.onload = () => {
             }
 
         }
+        status.innerHTML= "Begin by moving your mouse over the 'S'"
         console.log("ana l bandura l hamra")
 
 
@@ -40,11 +57,14 @@ window.onload = () => {
                 score-= 10;
                 element_score[0].innerHTML =  score
 
+
+                status.innerHTML= "You lost"
+
             }
         })
     }
 
-    //mouse exit the boundaries
+    //mouse exit the boundaries (goes to body)
     for (let i = 0; i < boundary_element.length; i++) {
         game_element.addEventListener("mouseleave", () => {
             if (inGame) {
@@ -58,13 +78,17 @@ window.onload = () => {
                 element_score[0].innerHTML =  score
 
 
+                status.innerHTML= "You lost"
+
+
+
+
 
             }
 
         })
     }
 
-    const end_element = document.getElementById("end")
     //mouse gets to end
     end_element.addEventListener("mouseenter", () => {
         if (inGame) {
@@ -77,21 +101,29 @@ window.onload = () => {
         score+= 5;
         element_score[0].innerHTML =  score
 
+
         inGame = false
 
         }
 
         console.log("easy peazy lemon squeazy" + score)
+        status.innerHTML= "You won"
+
+
+
     })
 
 
-    const element_reset = document.getElementById("start")
+    //reset game
     element_reset.onclick =() =>
     {
         score = 0;
         element_score[0].innerHTML =  score
+        user["score"] = 0
+
 
 
     }
+    
 
 }

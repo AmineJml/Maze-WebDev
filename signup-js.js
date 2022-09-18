@@ -12,6 +12,8 @@ document.getElementById('btn_signup').onclick = () => {
         alert("Please fill in the blanks")
         return
     } else {
+        // if(password.length<8)
+        //     alert("please enter a password longer than 9 characters")
 
         if (localStorage.getItem(username)) {
             alert("user already exist")
@@ -20,7 +22,6 @@ document.getElementById('btn_signup').onclick = () => {
             
             const user = {password: password , score: score}
             localStorage.setItem(username, JSON.stringify(user));
-            console.log(JSON.parse(localStorage.getItem(username)))
             alert("new account")
             
 
