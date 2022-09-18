@@ -22,7 +22,7 @@ document.getElementById('btn_signup').onclick = () =>
         alert("new account")
         let myValues = [password.value, score]
         localStorage.setItem(username, JSON.stringify( myValues));
-        console.log(localStorage.getItem(username)[1] )
+        console.log(localStorage.getItem(username))
 
     }
 
