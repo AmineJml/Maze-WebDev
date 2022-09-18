@@ -30,6 +30,5 @@ document.getElementById('btn_login').onclick = () => {
 
     }
     
-    console.log(username + password)
 
 }

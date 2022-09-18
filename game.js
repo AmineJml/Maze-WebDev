@@ -1,3 +1,11 @@
+function saveScore(score){
+
+    const username = localStorage.getItem("loggedUser")
+    const user = JSON.parse(localStorage.getItem(username))
+    user["score"] = score;
+    localStorage.setItem(username , JSON.stringify( user))
+}
+
 window.onload = () => {
     const element_score = document.getElementsByClassName("boundary example")
     const boundary_element = document.getElementsByClassName("boundary")
@@ -9,15 +17,18 @@ window.onload = () => {
 
     let score = 0;
     let inGame = false
+    const username = localStorage.getItem("loggedUser")
+    const user = JSON.parse(localStorage.getItem(username))
+    if (user != null){
+
+        score = user["score"];
+
+    }
+    element_score[0].innerHTML = score
 
 
 
 
-
-
-//     const user = JSON.parse(localStorage.getItem(localStorage.getItem("loggedUser")))
-//     user[score] = 200
-//    localStorage.setItem("loggedUser", user)
 
 
 
@@ -55,6 +66,7 @@ window.onload = () => {
                 inGame = false
 
                 score-= 10;
+                saveScore(score)
                 element_score[0].innerHTML =  score
 
 
@@ -75,6 +87,7 @@ window.onload = () => {
                 }
                 inGame = false
                 score-= 10;
+                saveScore(score)
                 element_score[0].innerHTML =  score
 
 
@@ -99,6 +112,7 @@ window.onload = () => {
         
   
         score+= 5;
+        saveScore(score)
         element_score[0].innerHTML =  score
 
 
@@ -118,8 +132,9 @@ window.onload = () => {
     element_reset.onclick =() =>
     {
         score = 0;
+        saveScore(score)
         element_score[0].innerHTML =  score
-        user["score"] = 0
+        
 
 
 
