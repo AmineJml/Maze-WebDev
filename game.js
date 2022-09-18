@@ -2,6 +2,7 @@ window.onload = () => {
     const element_score = document.getElementsByClassName("boundary example")
     const boundary_element = document.getElementsByClassName("boundary")
     const game_element = document.getElementById("game")
+    
 
 
     let score = 0;
