@@ -14,7 +14,30 @@
 //     }
 // }
 
-document.getElementById('btn_login').onclick = function() {
-    alert("button was clicked")
+
+
+
+
+
+document.getElementById('btn_login').onclick = () =>{
+    const username = document.getElementById("input_txt_username")
+    const password = document.getElementById("input_txt_password")
+
+    if(username.value == "" || password == "")   {
+        alert("Please fill in the blanks")
+        return
+    }
+    if(username.value == "admin" && password.value =="admin"){
+        alert("logging in")
+    }
+    else
+    {
+        alert("Invalid username or password")
+        return
+    }
+    console.log( username.value  + password.value)
+
 }
+    
+
  
