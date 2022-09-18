@@ -1,5 +1,9 @@
 window.onload = () => {
-    const nochange_element = document.getElementsByClassName("boundary example")
+    const element_score = document.getElementsByClassName("boundary example")
+    const boundary_element = document.getElementsByClassName("boundary")
+    const game_element = document.getElementById("game")
+
+
     let score = 0;
     let inGame = false
 
@@ -19,7 +23,9 @@ window.onload = () => {
 
     })
 
-    const boundary_element = document.getElementsByClassName("boundary")
+
+
+    //Mouse enter the boundaries
     for (let i = 0; i < boundary_element.length; i++) {
         boundary_element[i].addEventListener("mouseenter", () => {
             if (inGame) {
@@ -30,11 +36,14 @@ window.onload = () => {
                 }
                 inGame = false
 
+                score-= 10;
+                element_score[0].innerHTML =  score
+
             }
         })
     }
 
-    const game_element = document.getElementById("game")
+    //mouse exit the boundaries
     for (let i = 0; i < boundary_element.length; i++) {
         game_element.addEventListener("mouseleave", () => {
             if (inGame) {
@@ -44,35 +53,43 @@ window.onload = () => {
                     boundary_element[j].style.backgroundColor = "red"
                 }
                 inGame = false
+                score-= 10;
+                element_score[0].innerHTML =  score
+
+
 
             }
+
         })
     }
 
     const end_element = document.getElementById("end")
+    //mouse gets to end
     end_element.addEventListener("mouseenter", () => {
+        if (inGame) {
+
         for (let j = 0; j < boundary_element.length - 1; j++) {
-            if (inGame) {
                 boundary_element[j].style.backgroundColor = "green"
             }
-        }
+        
   
-        score++;
+        score+= 5;
+        element_score[0].innerHTML =  score
+
         inGame = false
 
-
+        }
 
         console.log("easy peazy lemon squeazy" + score)
     })
 
 
     const element_reset = document.getElementById("start")
-    const element_score = document.getElementsByClassName("boundary example")
     element_reset.onclick =() =>
     {
         score = 0;
-        console.log("AAAA")
-        element_score.innerHTML = "Amine"
+        element_score[0].innerHTML =  score
+
 
     }
 
