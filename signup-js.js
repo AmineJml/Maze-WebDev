@@ -18,7 +18,7 @@ document.getElementById('btn_signup').onclick = () => {
             return
         } else if (password == password_confirmation) {
             
-            const user = {"password": password , "score": score}
+            const user = {password: password , score: score}
             localStorage.setItem(username, JSON.stringify(user));
             console.log(JSON.parse(localStorage.getItem(username)))
             alert("new account")
